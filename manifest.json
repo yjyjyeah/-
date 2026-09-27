@@ -1,0 +1,11 @@
+{
+  "name": "Training · 身体重组计划",
+  "short_name": "Training",
+  "description": "半年身体重组训练计划",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101312",
+  "theme_color": "#101312",
+  "lang": "zh-CN",
+  "icons": [{"src":"icon.svg","sizes":"192x192","type":"image/svg+xml","purpose":"any maskable"}]
+}

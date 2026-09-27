@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101312" />
+  <meta name="description" content="半年身体重组训练计划" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23b8f36a'/%3E%3Cpath d='M24 58h52M31 42v32M69 42v32M20 50h60' stroke='%23101312' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+  <title>TRAINING / 身体重组计划</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark"><span class="brand-dot"></span><span>TRAINING</span></div>
+      <button class="icon-btn" id="rir-help" aria-label="RIR 帮助">?</button>
+    </header>
+
+    <main id="app-main">
+      <section class="view active" data-view="home" aria-labelledby="home-title">
+        <div class="eyebrow">半年身体重组计划</div>
+        <div class="hero-heading">
+          <div><h1 id="home-title">Week <span id="current-week">3</span><small>/ 26</small></h1><p id="phase-label">第一积累期 · BUILD PHASE</p></div>
+          <div class="week-ring"><span id="week-progress">12%</span><small>周期</small></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>当前体重</span><strong id="home-weight">60.0 <i>kg</i></strong><em>目标 59–61 kg</em></div>
+          <div class="stat-card"><span>体脂估计</span><strong>~20 <i>%</i></strong><em>保持力量表现</em></div>
+          <div class="stat-card"><span>阶段目标</span><strong>RIR 1–2</strong><em>次数优先 · 稳定加重</em></div>
+        </div>
+
+        <article class="today-card" id="today-card">
+          <div class="card-kicker"><span class="live-dot"></span> NEXT SESSION <span id="today-date"></span></div>
+          <div class="today-content">
+            <div><h2 id="today-name">Upper A</h2><p id="today-focus">卧推重点 · 7 个动作</p><div class="today-meta"><span>约 75 min</span><span>RIR 2</span></div></div>
+            <div class="today-icon">↗</div>
+          </div>
+          <button class="primary-btn" id="start-today">开始下一次训练 <span>→</span></button>
+        </article>
+
+        <div class="section-heading"><h2>训练序列</h2><span id="week-done-count">0 / 4 次完成</span></div>
+        <div class="schedule-card" id="schedule-list"></div>
+        <div class="workout-choice-heading"><span class="card-kicker">CHOOSE SESSION</span><span>需要时可手动调整</span></div>
+        <div class="workout-choices" id="workout-choices"></div>
+        <button class="rest-day-btn" id="rest-today">○ 今天休息，保留下一次训练</button>
+
+        <article class="insight-card">
+          <div class="insight-icon">↗</div><div><span class="card-kicker">NEXT STEP</span><p id="next-step">完成训练后，这里会告诉你下一次的建议重量。</p></div>
+        </article>
+      </section>
+
+      <section class="view" data-view="workout" aria-labelledby="workout-title">
+        <div class="page-heading"><div><div class="eyebrow">TODAY'S WORKOUT</div><h1 id="workout-title">Upper A</h1><p id="workout-subtitle">卧推重点 · Week 3</p></div><button class="ghost-btn" id="finish-workout">完成训练</button></div>
+        <div class="workout-progress"><div><span id="exercise-progress-text">0 / 7 动作</span><span id="workout-elapsed">00:00</span></div><div class="progress-track"><span id="exercise-progress-bar"></span></div></div>
+        <div id="exercise-list" class="exercise-list"></div>
+      </section>
+
+      <section class="view" data-view="progress" aria-labelledby="progress-title">
+        <div class="eyebrow">YOUR NUMBERS</div><h1 id="progress-title">进度</h1><p class="page-intro">记录趋势，而不是被单日数字牵着走。</p>
+        <div class="metric-tabs"><button class="metric-tab active" data-metric="weight">体重</button><button class="metric-tab" data-metric="waist">腰围</button><button class="metric-tab" data-metric="strength">力量</button></div>
+        <article class="chart-card"><div class="chart-header"><div><span class="card-kicker" id="chart-kicker">7-DAY AVERAGE</span><strong id="chart-value">60.0 <i>kg</i></strong></div><span class="trend-badge positive" id="trend-badge">稳定</span></div><div class="chart" id="progress-chart"></div><div class="chart-labels" id="chart-labels"></div></article>
+        <div class="log-form" id="body-log-form"><div><span class="card-kicker">ADD LOG</span><h2>今天的身体数据</h2></div><div class="input-row"><label><span>体重 kg</span><input id="weight-input" type="number" inputmode="decimal" step="0.1" placeholder="60.0" /></label><label><span>腰围 cm</span><input id="waist-input" type="number" inputmode="decimal" step="0.1" placeholder="78.0" /></label><button class="primary-btn compact" id="save-body-log">保存</button></div></div>
+        <div class="section-heading"><h2>核心动作</h2><span>最近记录</span></div><div class="strength-list" id="strength-list"></div>
+      </section>
+
+      <section class="view" data-view="plan" aria-labelledby="plan-title">
+        <div class="eyebrow">THE BIG PICTURE</div><h1 id="plan-title">26 周计划</h1><p class="page-intro">让每个阶段都有清晰的重点，按周推进。</p>
+        <div class="phase-hero"><div><span class="card-kicker">CURRENT PHASE</span><h2 id="plan-phase-name">第一积累期</h2><p id="plan-phase-desc">增加次数与重量，保持动作质量。</p></div><strong id="plan-week-big">03<span>/26</span></strong></div>
+        <article class="calendar-card">
+          <div class="calendar-header"><div><span class="card-kicker">26 WEEK CALENDAR</span><h2>周期日历</h2></div><span class="calendar-current" id="calendar-current-label">当前 · W03</span></div>
+          <div class="calendar-helper"><span>每格 = 1 周</span><span>Week 01—26</span></div>
+          <div class="phase-calendar" id="phase-calendar"></div>
+          <div class="calendar-legend"><span><i class="legend-dot build"></i>积累期</span><span><i class="legend-dot deload"></i>减载周</span><span><i class="legend-dot strength"></i>力量期</span><span><i class="legend-dot current"></i>当前</span></div>
+        </article>
+        <article class="activity-card">
+          <div class="calendar-header"><div><span class="card-kicker">ACTIVITY LOG</span><h2>实际训练日期</h2></div><span class="calendar-current" id="activity-month-label"></span></div>
+          <div class="month-weekdays"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+          <div class="month-calendar" id="activity-calendar"></div>
+          <p class="calendar-note">训练按实际完成日期记录，不受星期几限制。</p>
+        </article>
+        <div class="timeline" id="timeline"></div>
+        <article class="nutrition-card"><div class="card-kicker">DAILY TARGET</div><div class="nutrition-grid"><div><strong>2100–2200</strong><span>Calories kcal</span></div><div><strong>120–130</strong><span>Protein g</span></div><div><strong>9000+</strong><span>Steps</span></div><div><strong>2–2.5</strong><span>Water L</span></div></div><div class="habit-row" id="habit-row"><button data-habit="protein">○ 蛋白质</button><button data-habit="steps">○ 步数</button><button data-habit="water">○ 饮水</button><button data-habit="sleep">○ 睡眠</button></div></article>
+        <button class="reset-plan-btn" id="reset-plan">↺ 重置训练计划</button>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="主导航"><button class="nav-item active" data-nav="home"><span>⌂</span><small>首页</small></button><button class="nav-item" data-nav="workout"><span>◈</span><small>训练</small></button><button class="nav-item" data-nav="progress"><span>↗</span><small>进度</small></button><button class="nav-item" data-nav="plan"><span>▦</span><small>计划</small></button></nav>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close">×</button><div class="eyebrow">TRAINING GUIDE</div><h2 id="modal-title">RIR · 还剩几次余力？</h2><div class="rir-list"><div><b>3</b><span>还能做 3 次</span></div><div><b>2</b><span>还能做 2 次</span></div><div><b>1</b><span>还能做 1 次</span></div><div><b>0</b><span>已经无法再完成一次标准动作</span></div></div><p class="modal-note">大部分训练保持 RIR 1–3，不需要每组做到力竭。</p></div></div>
+  <div class="modal-backdrop" id="reset-backdrop" hidden><div class="modal reset-modal" role="dialog" aria-modal="true" aria-labelledby="reset-title"><button class="modal-close" id="reset-close">×</button><div class="eyebrow">RESET PLAN</div><h2 id="reset-title">确定要重新开始吗？</h2><p class="reset-warning">这会清除训练历史、训练序列和当前周数，并从 Week 1 · Upper A 开始。体重、腰围和习惯记录会保留。</p><div class="reset-actions"><button class="ghost-btn" id="reset-cancel">取消</button><button class="danger-btn" id="reset-confirm">确认重置</button></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="rest-timer" id="rest-timer" hidden><div><span class="card-kicker">REST</span><strong id="timer-display">02:00</strong></div><div class="timer-actions"><button id="add-time">+30 sec</button><button id="skip-time">跳过</button></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
