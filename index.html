@@ -7,7 +7,7 @@
   <meta name="description" content="半年身体重组训练计划" />
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23b8f36a'/%3E%3Cpath d='M24 58h52M31 42v32M69 42v32M20 50h60' stroke='%23101312' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
   <title>TRAINING / 身体重组计划</title>
 </head>
 <body>
@@ -86,7 +86,7 @@
           <div class="calendar-header"><div><span class="card-kicker">PPL ROTATION</span><h2>三分化 · 本周与下周</h2></div><span class="calendar-current">第 <span id="routine-week-label">03</span> 周</span></div>
           <p class="calendar-helper-note">每周 5 练（周三 / 周五休息），Push → Pull → Legs 逐日轮转，周一动作每周顺延 2 位。</p>
           <div class="routine-table" id="routine-table"></div>
-          <p class="calendar-note">例：第 1 周 一推 · 二拉 · 四腿 · 六推 · 日拉；第 2 周 二腿 · 三推 · 四拉 · 六腿 · 日推。</p>
+          <p class="calendar-note">例：第 1 周 一推 · 二拉 · 四腿 · 六推 · 日拉；第 2 周 一腿 · 二推 · 四腿 · 六推 · 日拉。</p>
         </article>
         <article class="nutrition-card"><div class="card-kicker">DAILY TARGET</div><div class="nutrition-grid"><div><strong>2100–2200</strong><span>Calories kcal</span></div><div><strong>120–130</strong><span>Protein g</span></div><div><strong>9000+</strong><span>Steps</span></div><div><strong>2–2.5</strong><span>Water L</span></div></div><div class="habit-row" id="habit-row"><button data-habit="protein">○ 蛋白质</button><button data-habit="steps">○ 步数</button><button data-habit="water">○ 饮水</button><button data-habit="sleep">○ 睡眠</button></div></article>
         <button class="reset-plan-btn" id="reset-plan">↺ 重置训练计划</button>
@@ -100,6 +100,6 @@
   <div class="modal-backdrop" id="reset-backdrop" hidden><div class="modal reset-modal" role="dialog" aria-modal="true" aria-labelledby="reset-title"><button class="modal-close" id="reset-close">×</button><div class="eyebrow">RESET PLAN</div><h2 id="reset-title">确定要重新开始吗？</h2><p class="reset-warning">这会清除训练历史、三分化轮转位置和当前周数，并从 Week 1 · Push 开始。体重、腰围和习惯记录会保留。</p><div class="reset-actions"><button class="ghost-btn" id="reset-cancel">取消</button><button class="danger-btn" id="reset-confirm">确认重置</button></div></div></div>
   <div class="toast" id="toast" role="status"></div>
   <div class="rest-timer" id="rest-timer" hidden><div><span class="card-kicker">REST</span><strong id="timer-display">02:00</strong></div><div class="timer-actions"><button id="add-time">+30 sec</button><button id="skip-time">跳过</button></div></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

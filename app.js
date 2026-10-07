@@ -33,8 +33,7 @@ const DAY_ORDER = ['周一','周二','周三','周四','周五','周六','周日
    每天一个动作日、按 Push → Pull → Legs 逐日推进，周一的动作每周顺延 2 位。
    这与三分化.md 给出的两周排期一致：
      第 1 周 一推 二拉 三休 四腿 五休 六推 日拉
-     第 2 周 一腿 二推 三休 四拉 五休 六推 日拉
-   三大项不会永远固定在星期几。 */
+     第 2 周 一腿 二推 三休 四拉 五休 六推 日拉   三大项不会永远固定在星期几。 */
 const DAY_REST = [false, false, true, false, true, false, false];
 const TRAINING_DAYS_PER_WEEK = 5;
 function trainingDays(){return TRAINING_DAYS_PER_WEEK}
@@ -135,7 +134,7 @@ function init(){
   qs('#current-week').textContent=state.week;qs('#week-progress').textContent=`${Math.round(state.week/26*100)}%`;qs('.week-ring').style.background=`conic-gradient(var(--lime) 0 ${state.week/26*100}%,#2b3530 ${state.week/26*100}% 100%)`;
   qs('#phase-label').textContent=`${phase.name} · ${phase.short}`;qs('#today-date').textContent=formatDate();
   renderHome();renderPlan();renderProgress();bindNavigation();bindModal();
-  if('serviceWorker' in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  if('serviceWorker' in navigator)navigator.serviceWorker.register('service-worker.js',{updateViaCache:'none'}).catch(()=>{});
 }
 function mondayOfWeek(date=new Date()){const d=new Date(date);const shift=(d.getDay()+6)%7;d.setDate(d.getDate()-shift);return d}
 function renderHome(){
